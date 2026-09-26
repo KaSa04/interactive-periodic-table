@@ -1,8 +1,22 @@
 import { useState } from "react";
 import { data } from '../services/data';
+import ElementModal from '../components/ElementModal';
 import '../css/Home.css';
 
 function Home() {
+    const [seleccionado, setSeleccionado] = useState(null);
+    const [modalAbierto, setModalAbierto] = useState(false);
+
+    const manejarSeleccion = (elemento) => {
+        setSeleccionado(elemento);
+        setModalAbierto(true);
+    };
+
+    const cerrarModal = () => {
+        setModalAbierto(false);
+        setSeleccionado(null);
+    };
+
     return (
         <div className="container">
 
@@ -23,6 +37,14 @@ function Home() {
                     </div>
                 ))}
             </div>
+
+            {modalAbierto && (
+                <ElementModal 
+                    elemento={seleccionado} 
+                    alCerrar={cerrarModal} 
+                />
+            )}
+
         </div>
     );
 }
