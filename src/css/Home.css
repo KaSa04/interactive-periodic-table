@@ -1,7 +1,7 @@
 .periodic-table {
     color: black;
     display: grid;
-    grid-template-columns: repeat(18, minmax(40px, 1fr));
+    grid-template-columns: repeat(18, minmax(30px, 1fr));
     grid-template-rows: repeat(8, 1fr);
     width: max-content;
     margin: 10px auto;
@@ -16,9 +16,10 @@
 
 .element-card {
     aspect-ratio: 1/1;
-    min-height: 65px;
+    min-height: 44px;
     padding: 5px;
     border: 1px solid black;
+    border-radius: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -33,7 +34,7 @@
 }
 
 .element-symbol {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     margin: 2px 0;
     font-weight: bold;
     flex: 1; 
@@ -110,42 +111,60 @@
     color: #fff;
 }
 
-.element-card.selected {
-  outline: 3px solid white; 
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
-  filter: brightness(1.5); 
-  transform: scale(1.1);
-  z-index: 10;
-}
-
-.contenedor-boton {
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-    padding-bottom: 50px;
-}
-
-.btn-simular {
-    background: linear-gradient(45deg, #6f9acf, #fc00ff);
+.buscador {
+    width: 230px;
+    max-width: 90%;
+    padding: 8px 14px;
+    margin: 12px 0;
+    border-radius: 10px;
+    border: 1px solid #334155;
+    background: #1e293b;
     color: white;
-    padding: 15px 35px;
-    border: none;
-    border-radius: 50px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 5px 15px rgba(0, 219, 222, 0.4);
-    transition: all 0.3s ease;
-    animation: aparecer 0.4s ease-out;
+    font-size: 0.8rem;
+    outline: none;
+    transition: border-color 0.2s ease;
 }
 
-.btn-simular:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 8px 25px rgba(252, 0, 255, 0.5);
-    filter: brightness(1.1);
+.buscador:focus {
+    border-color: #4c80bf;
 }
 
-@keyframes aparecer {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+.buscador::placeholder {
+    color: #64748b;
+}
+
+.element-card.atenuado {
+    opacity: 0.15;
+    filter: grayscale(1);
+    pointer-events: none;
+}
+
+.container {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 20px;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 260px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 20px;
+}
+
+.descripcion {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    margin-top: 4px;
+}
+
+.tabla-wrapper {
+    flex: 1;
+    overflow-x: auto;
 }

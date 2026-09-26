@@ -2,8 +2,8 @@ import "../css/Header.css"
 
 function Header() {
     return (
-        <div className="header">
-            <h1 className="title">Interactive Periodic Table</h1>
+        <div className="titulo-wrapper">
+            <h1 className="titulo-principal">Interactive Periodic Table</h1>
         </div>
     )
 }

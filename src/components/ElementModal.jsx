@@ -1,6 +1,15 @@
+import { useEffect } from 'react';
 import '../css/ElementModal.css';
 
+
 function ElementModal({ elemento, alCerrar }) {
+    useEffect(() => {
+        const cerrarConEsc = (e) => e.key === "Escape" && alCerrar();
+        document.addEventListener("keydown", cerrarConEsc);
+        return () => document.removeEventListener("keydown", cerrarConEsc);
+    }, [alCerrar]);
+
+
     if (!elemento) return null;
 
     return (
@@ -19,7 +28,7 @@ function ElementModal({ elemento, alCerrar }) {
                     {elemento.image?.url && (
                         <img
                             src={elemento.image.url}
-                            alt={elemento.image.title || elemento.name}
+                            alt={elemento.image.title || elemento.name || elemento.image.title}
                             className="modal-imagen"
                         />
                     )}
