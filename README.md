@@ -3,7 +3,7 @@
 Web application to explore all **118 chemical elements**: accurate layout of groups, periods, lanthanides and actinides, detailed information per element (atomic mass, phase, density, melting/boiling points, electronegativity, electron configuration), search by name/symbol/number, and category filtering through an interactive legend.
 
 
-## 🔗 Demo
+## Demo
 
 [View live project](https://kasa04.github.io/interactive-periodic-table/)
 
